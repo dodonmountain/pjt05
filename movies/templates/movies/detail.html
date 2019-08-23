@@ -1,0 +1,44 @@
+{% extends 'movies/base.html' %}
+{% block body %}
+<div class="page-header">
+  <h1 class="text-center">{{ Movie.title }}<small>{{ Movie.title_en }}</small></h1>
+</div>
+<table class="table table-dark p-3">
+  <tbody class="p-3">
+    <tr>
+      <th scope="row">관객수</th>
+      <td>
+        <h4>{{ Movie.audience }} 명</h4>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">개봉일</th>
+      <td>
+        <h4>{{ Movie.open_date }}</h4>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">장르</th>
+      <td>
+        <h4>{{ Movie.genre }}</h4>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">포스터</th>
+      <td><img style="height: 40rem;" src="{{ Movie.poster_url }}" alt=""></td>
+
+    </tr>
+    <tr>
+      <th scope="row">설명</th>
+      <td>
+        <p>{{ Movie.description }}</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h1>
+  <a href="../"><i class="fas fa-align-justify">목록</i></a>
+  <a href="/movies/{{ Movie.pk }}/del"><i class="fas fa-trash-alt">삭제</i></a>
+  <a href="/movies/{{ Movie.pk }}/update"><i class="fab fa-modx">수정</i></a>
+</h1>
+{% endblock %}

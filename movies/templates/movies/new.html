@@ -1,0 +1,31 @@
+{% extends 'movies/base.html' %}
+{% block body %}
+<div class="page-header">
+    <h1>영화 정보 등록 <small>input</small></h1>
+  </div>
+<div class="container">
+<form action="/movies/create/" method="POST">
+  {% csrf_token %}
+  <label for="title">영화 이름</label>
+  <input class="form-control" name="title" id="title" placeholder="영화이름">
+  <input class="form-control" name="title_en" id="title_en" placeholder="Title">
+  <label for="audience">관객수</label><br>
+  <input class="form-control" type="number"form-control" name="audience" id="audience" placeholder="관객수">
+  <label for="open_date">개봉일</label><br>
+  <input type="date" class="form-control" name="open_date" id="open_date" placeholder="개봉일">
+  <label for="genre">장르</label><br>
+  <input type="text" class="form-control" name="genre" id="genre" placeholder="장르">
+  <label for="watch_grade">관람등급</label><br>
+  <input type="text" class="form-control" name="watch_grade" id="watch_grade" placeholder="관람등급">
+  <label for="score">평점</label><br>
+  <input type="text" class="form-control" name="score" id="score" placeholder="평점">
+  <label for="poster_url">포스터이미지URL</label><br>
+  <input type="text" class="form-control" name="poster_url" id="poster_url" placeholder="poster_url">
+  <div class="form-group">
+      <label for="new">설명</label>
+      <textarea class="form-control" id="new" rows="15" name="description" id="description" placeholder="description"></textarea>
+  </div>
+  <input style="height: 2rem; font-size: 1rem;" type="submit" value="저장!">
+</form>
+</div>
+{% endblock %}

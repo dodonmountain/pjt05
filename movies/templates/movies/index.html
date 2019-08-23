@@ -1,0 +1,29 @@
+{% extends 'movies/base.html' %}
+{% block body %}
+<div class="page-header ml-4 p-4 text-center ">
+  <h1 style="font-family: 'Amatic SC', cursive; font-size:6rem; font-weight: 900;">Movie List</h1>
+</div>
+<div class="ml-auto text-center">
+  <h2 ><a style="color:tomato;font-family: 'Amatic SC', cursive; font-size:3rem; font-weight: 900;" href="/movies/new/">New!<i class="far fa-file-alt"></i></a></h2>
+</div>
+{% for movie in movies %}
+<div class="container shadow p-3 mb-5 rounded">
+<div class="page-header text-center">
+  <h2><a href="/movies/{{ movie.pk }}"><b>{{ movie.title }}</a></b></h2>
+  <h2 style="font-family: 'Amatic SC', cursive; font-size:4rem;"><small>{{ movie.title_en }}</small></h2>
+</div>
+<table class ="table ml-4 text-center text-shadow">
+  <thead>
+    <tr>
+      <th scope="col" class="table ml-4 text-center">평점</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{ movie.score }} 점</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+{% endfor %}
+{% endblock %}
